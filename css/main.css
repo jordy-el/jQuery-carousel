@@ -280,3 +280,28 @@ textarea {
         page-break-after: avoid;
     }
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 250px;
+    min-width: 500px;
+    background-color: black;
+}
+
+.carousel img {
+    object-fit: contain;
+    height: 100%;
+}
+
+.arrow {
+    text-decoration: none;
+    color: white;
+}
