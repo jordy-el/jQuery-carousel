@@ -15,14 +15,12 @@ const Carousel = {
         this.renderImage();
         this.autoRotateLoop = setInterval(() => { this.autoRotate() }, this.rotateInterval);
         this.leftArrow.click((event) => {
-            console.log('Left arrow clicked!');
             clearInterval(this.autoRotateLoop);
             this.autoRotateLoop = setInterval(() => { this.autoRotate() }, this.rotateInterval);
             this.rotateLeft();
             event.preventDefault();
         });
         this.rightArrow.click((event) => {
-            console.log('Right arrow clicked!');
             clearInterval(this.autoRotateLoop);
             this.autoRotateLoop = setInterval(() => { this.autoRotate() }, this.rotateInterval);
             this.rotateRight();
@@ -30,19 +28,16 @@ const Carousel = {
         });
     },
     renderImage: function() {
-        console.log('Rendering: ', this.currentImage);
         $(this.previousImage).hide();
         $(this.currentImage).show();
     },
     rotateLeft: function() {
-        console.log('Rotating queue left!');
         this.imageQueue.unshift(this.imageQueue.pop());
         this.previousImage = this.currentImage;
         this.currentImage = this.imageQueue[0];
         this.renderImage();
     },
     rotateRight: function() {
-        console.log('Rotating queue right!');
         this.imageQueue.push(this.imageQueue.shift());
         this.previousImage = this.currentImage;
         this.currentImage = this.imageQueue[0];
@@ -54,7 +49,6 @@ const Carousel = {
 };
 
 const main = function() {
-    console.log('Ready!');
     const carousel = Object.create(Carousel);
     carousel.init();
 };
